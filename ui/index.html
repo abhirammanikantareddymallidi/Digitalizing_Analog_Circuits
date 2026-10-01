@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VLSI Hybrid Physics-AI System</title>
+    <meta name="description" content="Hybrid Physics-Informed AI/ML VLSI Circuit Analysis and Design System — Physics, Technology Constraints, and ML working together.">
+    <!-- Premium Google Fonts: Outfit for headings, Inter for body, Fira Code for mono -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- Include Phosphor Icons for premium iconography -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <!-- Background Animated Gradients -->
+    <div class="bg-mesh">
+        <div class="bg-orb orb-1"></div>
+        <div class="bg-orb orb-2"></div>
+        <div class="bg-orb orb-3"></div>
+    </div>
+
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-wrapper">
+                    <i class="ph-fill ph-cpu"></i>
+                    <h2>VLSI AI</h2>
+                </div>
+                <span class="badge pulse-badge">Hybrid Physics+AI</span>
+            </div>
+
+            <!-- Circuit Selection -->
+            <div class="sidebar-section-label">
+                <i class="ph ph-circuit-board"></i> Circuit Type
+            </div>
+            <div class="circuit-selector" id="circuit-list">
+                <!-- Populated via JS -->
+            </div>
+
+            <div class="sidebar-section-label tech-section-label">
+                <i class="ph ph-atom"></i> Technology Node
+            </div>
+
+            <div class="tech-selector-panel" id="tech-selector-panel">
+                <div class="tech-select-row">
+                    <label for="sel-node"><i class="ph ph-arrows-in"></i> Technology Node</label>
+                    <select id="sel-node" class="tech-dropdown">
+                        <option value="">Loading...</option>
+                    </select>
+                </div>
+                <div class="tech-select-row">
+                    <label for="sel-device"><i class="ph ph-transistor"></i> Device</label>
+                    <select id="sel-device" class="tech-dropdown">
+                        <option value="NMOS">NMOS</option>
+                        <option value="PMOS">PMOS</option>
+                        <option value="CMOS">CMOS</option>
+                    </select>
+                </div>
+                <div id="tech-status-badge" class="tech-status-badge no-file">
+                    <i class="ph ph-warning"></i>
+                    <span id="tech-status-text">Select a technology node</span>
+                </div>
+            </div>
+
+            <!-- Mode Toggle -->
+            <div class="mode-toggle">
+                <button class="mode-btn active" id="btn-forward">
+                    <i class="ph ph-trend-up"></i> Forward
+                </button>
+                <button class="mode-btn" id="btn-inverse">
+                    <i class="ph ph-arrows-merge"></i> Inverse
+                </button>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="topbar">
+                <div class="topbar-content">
+                    <h1 id="current-circuit-title">Select a Circuit</h1>
+                    <p id="current-circuit-desc" class="subtitle">Physics + AI Engineering Framework</p>
+                </div>
+                <div class="topbar-actions">
+                    <div id="tech-context-pill" class="tech-context-pill" style="display:none;">
+                        <i class="ph-fill ph-atom"></i>
+                        <span id="tech-context-text">No node</span>
+                    </div>
+                    <div class="status-indicator">
+                        <span class="status-dot online"></span> API Connected
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-scroll">
+                <!-- FORWARD MODE SECTION -->
+                <section id="forward-mode" class="mode-section active">
+                    <div class="panel-grid">
+                        <!-- Input Parameters -->
+                        <div class="panel glass-panel input-panel">
+                            <div class="panel-header">
+                                <h3><i class="ph ph-sliders"></i> Input Parameters</h3>
+                                <button id="run-forward-btn" class="action-btn primary-btn">
+                                    <i class="ph-bold ph-play"></i> Run Analysis
+                                </button>
+                            </div>
+                            <div class="panel-body" id="forward-inputs">
+                                <div class="empty-state">
+                                    <i class="ph-fill ph-mouse-left"></i>
+                                    <p>Select a circuit from the sidebar</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Results -->
+                        <div class="panel glass-panel result-panel">
+                            <div class="panel-header">
+                                <h3><i class="ph ph-chart-bar"></i> Analysis Results</h3>
+                                <span id="verification-badge" class="status-badge hidden"></span>
+                            </div>
+                            <div class="panel-body flex-body">
+                                <div class="tabs">
+                                    <button class="tab-btn active" data-target="tab-physics">
+                                        <i class="ph ph-atom"></i> Physics Output
+                                    </button>
+                                    <button class="tab-btn" data-target="tab-equations">
+                                        <i class="ph ph-math-operations"></i> Equations
+                                    </button>
+                                </div>
+
+                                <div class="tab-content active" id="tab-physics">
+                                    <div class="results-grid" id="physics-results">
+                                        <div class="empty-state">
+                                            <i class="ph-fill ph-calculator"></i>
+                                            <p>Run analysis to view physics-derived results.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-content" id="tab-equations">
+                                    <div class="equations-list" id="equations-results"></div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Constraint Verification -->
+                    <div class="panel glass-panel wide-panel">
+                        <div class="panel-header">
+                            <h3><i class="ph ph-check-square"></i> Constraint &amp; Physics Verification</h3>
+                            <!-- Overall validation summary badge -->
+                            <div id="validation-summary-bar" class="validation-summary-bar" style="display:none;"></div>
+                        </div>
+                        <div class="panel-body">
+                            <!-- Constraint filter tabs -->
+                            <div class="constraint-filter-tabs" id="constraint-filter-tabs" style="display:none;">
+                                <button class="cfilter-btn active" data-filter="all" onclick="filterConstraints('all',this)">All</button>
+                                <button class="cfilter-btn" data-filter="physics" onclick="filterConstraints('physics',this)">Physics</button>
+                                <button class="cfilter-btn" data-filter="circuit" onclick="filterConstraints('circuit',this)">Circuit</button>
+                                <button class="cfilter-btn" data-filter="fail" onclick="filterConstraints('fail',this)">Failures Only</button>
+                            </div>
+                            <div id="constraint-results" class="constraint-grid">
+                                <div class="empty-state inline">
+                                    <p>Physics constraints will be verified here.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- INVERSE MODE SECTION -->
+                <section id="inverse-mode" class="mode-section">
+                    <div class="panel-grid">
+                        <!-- Target Specs -->
+                        <div class="panel glass-panel input-panel">
+                            <div class="panel-header">
+                                <h3><i class="ph ph-target"></i> Desired Specifications</h3>
+                                <button id="run-inverse-btn" class="action-btn primary-btn">
+                                    <i class="ph-bold ph-magic-wand"></i> Synthesize Design
+                                </button>
+                            </div>
+                            <div class="panel-body">
+                                <p class="info-text">Specify your target performance metrics.</p>
+                                <div id="inverse-targets" class="input-grid">
+                                    <!-- Populated via JS -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Candidates -->
+                        <div class="panel glass-panel result-panel">
+                            <div class="panel-header">
+                                <h3><i class="ph ph-lightbulb"></i> Design Candidates</h3>
+                                <span class="badge gradient-badge" id="candidates-count">0 found</span>
+                            </div>
+                            <div class="panel-body" id="inverse-results">
+                                <div class="empty-state">
+                                    <i class="ph-fill ph-cube"></i>
+                                    <p>Run synthesis to generate physically verified design candidates.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/js/main.js?v=9"></script>
+</body>
+</html>

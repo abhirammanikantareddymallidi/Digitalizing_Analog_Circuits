@@ -1,0 +1,32 @@
+{
+  "circuit_type": "common_gate",
+  "n_samples": 20,
+  "n_failures": 0,
+  "input_names": [
+    "VDD",
+    "VGS",
+    "VTH",
+    "W",
+    "L",
+    "mu_n",
+    "Cox",
+    "lambda_n",
+    "RD",
+    "RS",
+    "CL"
+  ],
+  "output_names": [
+    "operating_region",
+    "ID",
+    "gm",
+    "ro",
+    "VOV",
+    "Av",
+    "Av_dB",
+    "Rin",
+    "Rout",
+    "BW",
+    "GBW",
+    "power_dissipation"
+  ]
+}

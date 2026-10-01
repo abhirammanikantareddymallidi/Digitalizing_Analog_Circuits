@@ -1,0 +1,29 @@
+{
+  "circuit_type": "ring_oscillator",
+  "n_samples": 20,
+  "n_failures": 0,
+  "input_names": [
+    "VDD",
+    "N_stages",
+    "VTH_n",
+    "VTH_p",
+    "W_n",
+    "L_n",
+    "W_p",
+    "L_p",
+    "mu_n",
+    "mu_p",
+    "Cox",
+    "CL"
+  ],
+  "output_names": [
+    "f_osc",
+    "T_period",
+    "td_per_stage",
+    "total_delay",
+    "kn_stage",
+    "kp_stage",
+    "P_dynamic_per_stage",
+    "P_total"
+  ]
+}

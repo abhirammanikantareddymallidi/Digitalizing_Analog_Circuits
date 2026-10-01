@@ -1,0 +1,555 @@
+{
+  "trained_at": "2026-09-29T12:16:02.943977+00:00",
+  "samples_per_circuit": 20,
+  "seed": 42,
+  "circuits": {
+    "common_source": {
+      "n_samples": 20,
+      "n_failures": 0,
+      "input_names": [
+        "VDD",
+        "VGS",
+        "VTH",
+        "W",
+        "L",
+        "mu_n",
+        "Cox",
+        "lambda_n",
+        "RD",
+        "CL"
+      ],
+      "output_names": [
+        "operating_region",
+        "ID",
+        "ID_uA",
+        "VDS",
+        "VOV",
+        "VDS_sat",
+        "gm",
+        "ro",
+        "Av",
+        "Av_dB",
+        "Rin",
+        "Rout",
+        "BW",
+        "BW_MHz",
+        "GBW",
+        "GBW_MHz",
+        "phase_margin_deg",
+        "power_dissipation",
+        "power_mW",
+        "thermal_noise_nV",
+        "flicker_noise_nV",
+        "total_noise_nV",
+        "integrated_noise_uV",
+        "output_swing_V",
+        "output_swing_pp",
+        "transistor_area_um2",
+        "total_area_um2",
+        "IIP3_V",
+        "IIP3_dBm",
+        "PSRR",
+        "PSRR_dB"
+      ],
+      "best_model": "neural_network",
+      "comparison": {
+        "random_forest": {
+          "model_name": "Random Forest",
+          "mse": 6.322710336783084e+19,
+          "mae": 896386718.7841002,
+          "r2": -21.779523689448983,
+          "n_train": 16,
+          "n_test": 4,
+          "status": "trained"
+        },
+        "xgboost": {
+          "model_name": "Gradient Boosting (fallback)",
+          "mse": 3.0107682756577112e+19,
+          "mae": 872429390.7153926,
+          "r2": -25.415288180909187,
+          "n_train": 16,
+          "n_test": 4,
+          "status": "trained"
+        },
+        "neural_network": {
+          "model_name": "Neural Network",
+          "mse": 1.0899669970325651e+20,
+          "mae": 1303588875.280429,
+          "r2": -11.193121692260899,
+          "n_train": 16,
+          "n_test": 4,
+          "status": "trained"
+        }
+      },
+      "saved_models": {
+        "random_forest": "models/trained_smoke\\common_source\\random_forest.pkl",
+        "xgboost": "models/trained_smoke\\common_source\\xgboost.pkl",
+        "neural_network": "models/trained_smoke\\common_source\\neural_network.pkl"
+      }
+    },
+    "common_gate": {
+      "n_samples": 20,
+      "n_failures": 0,
+      "input_names": [
+        "VDD",
+        "VGS",
+        "VTH",
+        "W",
+        "L",
+        "mu_n",
+        "Cox",
+        "lambda_n",
+        "RD",
+        "RS",
+        "CL"
+      ],
+      "output_names": [
+        "operating_region",
+        "ID",
+        "gm",
+        "ro",
+        "VOV",
+        "Av",
+        "Av_dB",
+        "Rin",
+        "Rout",
+        "BW",
+        "GBW",
+        "power_dissipation"
+      ],
+      "best_model": "neural_network",
+      "comparison": {
+        "random_forest": {
+          "model_name": "Random Forest",
+          "mse": 5.067114908532483e+22,
+          "mae": 49650493386.85967,
+          "r2": -2.5341621044529643,
+          "n_train": 16,
+          "n_test": 4,
+          "status": "trained"
+        },
+        "xgboost": {
+          "model_name": "Gradient Boosting (fallback)",
+          "mse": 9.767728807487768e+22,
+          "mae": 72318113108.25038,
+          "r2": -4.305140857608937,
+          "n_train": 16,
+          "n_test": 4,
+          "status": "trained"
+        },
+        "neural_network": {
+          "model_name": "Neural Network",
+          "mse": 3.7389418241642406e+21,
+          "mae": 13008567710.963585,
+          "r2": -2.002471196897178,
+          "n_train": 16,
+          "n_test": 4,
+          "status": "trained"
+        }
+      },
+      "saved_models": {
+        "random_forest": "models/trained_smoke\\common_gate\\random_forest.pkl",
+        "xgboost": "models/trained_smoke\\common_gate\\xgboost.pkl",
+        "neural_network": "models/trained_smoke\\common_gate\\neural_network.pkl"
+      }
+    },
+    "common_drain": {
+      "n_samples": 20,
+      "n_failures": 0,
+      "input_names": [
+        "VDD",
+        "VGS",
+        "VTH",
+        "W",
+        "L",
+        "mu_n",
+        "Cox",
+        "lambda_n",
+        "RS",
+        "CL"
+      ],
+      "output_names": [
+        "operating_region",
+        "ID",
+        "gm",
+        "ro",
+        "VOV",
+        "Av",
+        "Av_dB",
+        "Rin",
+        "Rout",
+        "BW",
+        "power_dissipation"
+      ],
+      "best_model": "xgboost",
+      "comparison": {
+        "random_forest": {
+          "model_name": "Random Forest",
+          "mse": 2.0639606433498867e+20,
+          "mae": 2415394275.890598,
+          "r2": -6.763995208416014,
+          "n_train": 16,
+          "n_test": 4,
+          "status": "trained"
+        },
+        "xgboost": {
+          "model_name": "Gradient Boosting (fallback)",
+          "mse": 1.1476940861636597e+20,
+          "mae": 2204820827.8170667,
+          "r2": -5.568710894771628,
+          "n_train": 16,
+          "n_test": 4,
+          "status": "trained"
+        },
+        "neural_network": {
+          "model_name": "Neural Network",
+          "mse": 2.0222952737302158e+20,
+          "mae": 2614021215.493568,
+          "r2": -17.25288350379148,
+          "n_train": 16,
+          "n_test": 4,
+          "status": "trained"
+        }
+      },
+      "saved_models": {
+        "random_forest": "models/trained_smoke\\common_drain\\random_forest.pkl",
+        "xgboost": "models/trained_smoke\\common_drain\\xgboost.pkl",
+        "neural_network": "models/trained_smoke\\common_drain\\neural_network.pkl"
+      }
+    },
+    "differential_amplifier": {
+      "n_samples": 20,
+      "n_failures": 0,
+      "input_names": [
+        "VDD",
+        "VCM",
+        "Vdiff",
+        "VTH",
+        "W",
+        "L",
+        "mu_n",
+        "Cox",
+        "lambda_n",
+        "RD",
+        "ISS",
+        "RSS",
+        "CL"
+      ],
+      "output_names": [
+        "operating_region",
+        "ID_each",
+        "gm",
+        "ro",
+        "VOV",
+        "Ad",
+        "Ad_dB",
+        "Acm",
+        "Acm_dB",
+        "CMRR",
+        "CMRR_dB",
+        "Rin_diff",
+        "Rout",
+        "BW",
+        "BW_MHz",
+        "GBW",
+        "GBW_MHz",
+        "phase_margin_deg",
+        "power_dissipation",
+        "power_mW",
+        "thermal_noise_nV",
+        "total_noise_nV",
+        "output_swing_V",
+        "output_swing_pp",
+        "transistor_area_um2",
+        "total_area_um2",
+        "IIP3_V",
+        "IIP3_dBm",
+        "PSRR_dB",
+        "VICM_max",
+        "VICM_min"
+      ],
+      "best_model": "neural_network",
+      "comparison": {
+        "random_forest": {
+          "model_name": "Random Forest",
+          "mse": 2.580455250984561e+18,
+          "mae": 264393445.28970024,
+          "r2": 0.20607545730221663,
+          "n_train": 16,
+          "n_test": 4,
+          "status": "trained"
+        },
+        "xgboost": {
+          "model_name": "Gradient Boosting (fallback)",
+          "mse": 3.247645823382309e+18,
+          "mae": 295753977.2053698,
+          "r2": -0.2122757143799184,
+          "n_train": 16,
+          "n_test": 4,
+          "status": "trained"
+        },
+        "neural_network": {
+          "model_name": "Neural Network",
+          "mse": 2.2108308483392392e+18,
+          "mae": 272682567.0599239,
+          "r2": 0.23585881881783263,
+          "n_train": 16,
+          "n_test": 4,
+          "status": "trained"
+        }
+      },
+      "saved_models": {
+        "random_forest": "models/trained_smoke\\differential_amplifier\\random_forest.pkl",
+        "xgboost": "models/trained_smoke\\differential_amplifier\\xgboost.pkl",
+        "neural_network": "models/trained_smoke\\differential_amplifier\\neural_network.pkl"
+      }
+    },
+    "single_stage_opamp": {
+      "n_samples": 20,
+      "n_failures": 0,
+      "input_names": [
+        "VDD",
+        "VSS",
+        "Wn",
+        "Ln",
+        "Wp",
+        "Lp",
+        "IBIAS",
+        "CL",
+        "VTH_n",
+        "VTH_p",
+        "mu_n",
+        "mu_p",
+        "Cox",
+        "lambda_n",
+        "lambda_p"
+      ],
+      "output_names": [
+        "operating_region",
+        "ID",
+        "ID_uA",
+        "VOV",
+        "gm",
+        "gm_mS",
+        "ro",
+        "ro_kOhm",
+        "Rout",
+        "Rout_kOhm",
+        "Av",
+        "Av_magnitude",
+        "Av_dB",
+        "pole_frequency",
+        "pole_frequency_MHz",
+        "GBW",
+        "GBW_MHz",
+        "CMRR_dB",
+        "output_swing_V",
+        "output_swing_pp",
+        "power_dissipation",
+        "power_mW"
+      ],
+      "best_model": "random_forest",
+      "comparison": {
+        "random_forest": {
+          "model_name": "Random Forest",
+          "mse": 3.190911733766933e+17,
+          "mae": 105829781.46475779,
+          "r2": 0.296577400257793,
+          "n_train": 16,
+          "n_test": 4,
+          "status": "trained"
+        },
+        "xgboost": {
+          "model_name": "Gradient Boosting (fallback)",
+          "mse": 4.1795089792708717e+17,
+          "mae": 125928501.44926916,
+          "r2": 0.2132580405672197,
+          "n_train": 16,
+          "n_test": 4,
+          "status": "trained"
+        },
+        "neural_network": {
+          "model_name": "Neural Network",
+          "mse": 2.4918537609914275e+17,
+          "mae": 82962393.11188896,
+          "r2": -0.3702919825823601,
+          "n_train": 16,
+          "n_test": 4,
+          "status": "trained"
+        }
+      },
+      "saved_models": {
+        "random_forest": "models/trained_smoke\\single_stage_opamp\\random_forest.pkl",
+        "xgboost": "models/trained_smoke\\single_stage_opamp\\xgboost.pkl",
+        "neural_network": "models/trained_smoke\\single_stage_opamp\\neural_network.pkl"
+      }
+    },
+    "two_stage_opamp": {
+      "n_samples": 20,
+      "n_failures": 0,
+      "input_names": [
+        "VDD",
+        "VSS",
+        "Wn1",
+        "Ln1",
+        "Wp1",
+        "Lp1",
+        "Wn2",
+        "Ln2",
+        "Wp2",
+        "Lp2",
+        "IBIAS1",
+        "IBIAS2",
+        "CC",
+        "CL",
+        "VTH_n",
+        "VTH_p",
+        "mu_n",
+        "mu_p",
+        "Cox",
+        "lambda_n",
+        "lambda_p"
+      ],
+      "output_names": [
+        "operating_region",
+        "ID1",
+        "ID1_uA",
+        "ID2",
+        "ID2_uA",
+        "VOV1",
+        "VOV2",
+        "gm1",
+        "gm1_mS",
+        "gm2",
+        "gm2_mS",
+        "ro1",
+        "ro1_kOhm",
+        "ro2",
+        "ro2_kOhm",
+        "A1",
+        "A2",
+        "Av",
+        "Av_magnitude",
+        "Av_dB",
+        "Ceq",
+        "Ceq_fF",
+        "fu",
+        "fu_MHz",
+        "GBW",
+        "GBW_MHz",
+        "dominant_pole",
+        "dominant_pole_MHz",
+        "non_dominant_pole",
+        "non_dominant_pole_MHz",
+        "SR",
+        "SR_V_per_us",
+        "CMRR_dB",
+        "phase_margin_deg",
+        "output_swing_V",
+        "output_swing_pp",
+        "Rout",
+        "Rout_kOhm",
+        "power_dissipation",
+        "power_mW"
+      ],
+      "best_model": "random_forest",
+      "comparison": {
+        "random_forest": {
+          "model_name": "Random Forest",
+          "mse": 7922280580527912.0,
+          "mae": 22523795.638580225,
+          "r2": -1.0109866572006534,
+          "n_train": 16,
+          "n_test": 4,
+          "status": "trained"
+        },
+        "xgboost": {
+          "model_name": "Gradient Boosting (fallback)",
+          "mse": 1.1944971451978184e+16,
+          "mae": 25958059.788535394,
+          "r2": -2.306021408514719,
+          "n_train": 16,
+          "n_test": 4,
+          "status": "trained"
+        },
+        "neural_network": {
+          "model_name": "Neural Network",
+          "mse": 1.2667206275161256e+16,
+          "mae": 30488808.769446336,
+          "r2": -2.412008086199863,
+          "n_train": 16,
+          "n_test": 4,
+          "status": "trained"
+        }
+      },
+      "saved_models": {
+        "random_forest": "models/trained_smoke\\two_stage_opamp\\random_forest.pkl",
+        "xgboost": "models/trained_smoke\\two_stage_opamp\\xgboost.pkl",
+        "neural_network": "models/trained_smoke\\two_stage_opamp\\neural_network.pkl"
+      }
+    },
+    "ring_oscillator": {
+      "n_samples": 20,
+      "n_failures": 0,
+      "input_names": [
+        "VDD",
+        "N_stages",
+        "VTH_n",
+        "VTH_p",
+        "W_n",
+        "L_n",
+        "W_p",
+        "L_p",
+        "mu_n",
+        "mu_p",
+        "Cox",
+        "CL"
+      ],
+      "output_names": [
+        "f_osc",
+        "T_period",
+        "td_per_stage",
+        "total_delay",
+        "kn_stage",
+        "kp_stage",
+        "P_dynamic_per_stage",
+        "P_total"
+      ],
+      "best_model": "neural_network",
+      "comparison": {
+        "random_forest": {
+          "model_name": "Random Forest",
+          "mse": 2.9283343668248817e+23,
+          "mae": 158463879229.95285,
+          "r2": -11.716159195768435,
+          "n_train": 16,
+          "n_test": 4,
+          "status": "trained"
+        },
+        "xgboost": {
+          "model_name": "Gradient Boosting (fallback)",
+          "mse": 7.429528691904393e+23,
+          "mae": 221721628598.96494,
+          "r2": -30.677012569682866,
+          "n_train": 16,
+          "n_test": 4,
+          "status": "trained"
+        },
+        "neural_network": {
+          "model_name": "Neural Network",
+          "mse": 1.459121246927179e+22,
+          "mae": 37582050453.956635,
+          "r2": -0.6198637413940984,
+          "n_train": 16,
+          "n_test": 4,
+          "status": "trained"
+        }
+      },
+      "saved_models": {
+        "random_forest": "models/trained_smoke\\ring_oscillator\\random_forest.pkl",
+        "xgboost": "models/trained_smoke\\ring_oscillator\\xgboost.pkl",
+        "neural_network": "models/trained_smoke\\ring_oscillator\\neural_network.pkl"
+      }
+    }
+  }
+}
