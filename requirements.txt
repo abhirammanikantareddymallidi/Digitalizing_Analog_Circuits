@@ -1,11 +1,4 @@
-<<<<<<< HEAD
 Flask
 numpy
 scipy
 scikit-learn
-=======
-Flask
-numpy
-scipy
-scikit-learn
->>>>>>> eb48bfc2ab57860a2eb8915900d56cc6f8dc595c
